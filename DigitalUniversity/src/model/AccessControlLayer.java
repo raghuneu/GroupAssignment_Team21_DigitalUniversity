@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 /**
  * Handles post-login role routing
  * @author priyankavadivel
+ * @author vedanarayananshrirangesh
  */
 public class AccessControlLayer extends JPanel {
 
@@ -26,7 +27,7 @@ public class AccessControlLayer extends JPanel {
     }
 
     /**
-     * * @author vedanarayananshrirangesh
+     *
      */
     private void route() {
         if (loggedInAccount.getRole() == Role.ADMIN) {
