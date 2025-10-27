@@ -11,6 +11,7 @@ import javax.swing.JPanel;
  * Handles post-login role routing
  * @author priyankavadivel
  * @author vedanarayananshrirangesh
+ * @author rg
  */
 public class AccessControlLayer extends JPanel {
 
@@ -44,6 +45,13 @@ public class AccessControlLayer extends JPanel {
             facultyPanel.putClientProperty("account", loggedInAccount);
             this.add("facultyWorkArea", facultyPanel);
             ((CardLayout) this.getLayout()).show(this, "facultyWorkArea");
+        } else if (loggedInAccount.getRole() == Role.STUDENT) {
+            StudentWorkAreaPanel studentPanel = new StudentWorkAreaPanel();
+            studentPanel.putClientProperty("business", business);
+            studentPanel.putClientProperty("root", root);
+            studentPanel.putClientProperty("account", loggedInAccount);
+            this.add("studentWorkArea", studentPanel);
+            ((CardLayout) this.getLayout()).show(this, "studentWorkArea");
         }
     }
 }
