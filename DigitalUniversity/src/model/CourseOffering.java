@@ -66,7 +66,7 @@ public class CourseOffering {
      */
     public void setFaculty(Faculty faculty) {
         this.faculty = faculty;
-        this.faculty = faculty;
+        
     }
 
     /**
