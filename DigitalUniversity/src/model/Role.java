@@ -9,5 +9,5 @@ package model;
  * @author rg
  */
 public enum Role {
-    admin, faculty, student
+    ADMIN, FACULTY, STUDENT
 }
