@@ -22,7 +22,27 @@ public class AccessControlLayer extends JPanel {
         this.business = business;
         this.loggedInAccount = ua;
         this.setLayout(new CardLayout());
-       
+        route();
     }
 
+    /**
+     *
+     */
+    private void route() {
+        if (loggedInAccount.getRole() == Role.ADMIN) {
+            AdminWorkAreaPanel adminPanel = new AdminWorkAreaPanel();
+            adminPanel.putClientProperty("business", business);
+            adminPanel.putClientProperty("root", root);
+            adminPanel.putClientProperty("account", loggedInAccount);
+            this.add("adminWorkArea", adminPanel);
+            ((CardLayout) this.getLayout()).show(this, "adminWorkArea");
+        } else if (loggedInAccount.getRole() == Role.FACULTY) {
+            FacultyWorkAreaPanel facultyPanel = new FacultyWorkAreaPanel();
+            facultyPanel.putClientProperty("business", business);
+            facultyPanel.putClientProperty("root", root);
+            facultyPanel.putClientProperty("account", loggedInAccount);
+            this.add("facultyWorkArea", facultyPanel);
+            ((CardLayout) this.getLayout()).show(this, "facultyWorkArea");
+        }
+    }
 }
