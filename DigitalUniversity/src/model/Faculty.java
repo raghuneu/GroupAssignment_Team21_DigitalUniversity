@@ -19,7 +19,7 @@ public class Faculty extends Person {
     /**
      * 
      */
-    public Faculty(String nam, String email, String department) {
+    public Faculty(String name, String email, String department) {
         super(name, email);
         this.department = department;
     }
