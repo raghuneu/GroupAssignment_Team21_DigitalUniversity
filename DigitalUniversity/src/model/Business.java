@@ -16,9 +16,9 @@ import java.util.Map;
  */
 public class Business {
 
-    private final Map<String, Admin> Admins = new HashMap<>();
-    private final Map<String, Faculty> Faculties = new HashMap<>();
-    private final Map<String, Student> Students = new HashMap<>();
+    private final Map<String, Admin> admins = new HashMap<>();
+    private final Map<String, Faculty> faculties = new HashMap<>();
+    private final Map<String, Student> students = new HashMap<>();
 
     private final Map<String, Course> courses = new HashMap<>();
     private final Map<String, CourseOffering> offerings = new HashMap<>();
@@ -37,21 +37,21 @@ public class Business {
      *
      */
     public Collection<Admin> getAdmins() {
-        return Admins.values();
+        return admins.values();
     }
 
     /**
      *
      */
     public Collection<Faculty> getFaculties() {
-        return Faculties.values();
+        return faculties.values();
     }
 
     /**
      *
      */
     public Collection<Student> getStudents() {
-        return Students.values();
+        return students.values();
     }
 
     /**
@@ -79,7 +79,7 @@ public class Business {
      *
      */
     public Admin addAdmin(Admin a, String username, String password) {
-        Admins.put(a.getId(), a);
+        admins.put(a.getId(), a);
         accounts.add(new UserAccount(username, password, Role.ADMIN, a.getId()));
         return a;
     }
@@ -88,7 +88,7 @@ public class Business {
      *
      */
     public Faculty addFaculty(Faculty f, String username, String password) {
-        Faculties.put(f.getId(), f);
+        faculties.put(f.getId(), f);
         accounts.add(new UserAccount(username, password, Role.FACULTY, f.getId()));
         return f;
     }
@@ -97,7 +97,7 @@ public class Business {
      *
      */
     public Student addStudent(Student s, String username, String password) {
-        Students.put(s.getId(), s);
+        students.put(s.getId(), s);
         accounts.add(new UserAccount(username, password, Role.STUDENT, s.getId()));
         return s;
     }
@@ -106,7 +106,7 @@ public class Business {
      *
      */
     public void deleteFacultyById(String facultyId) {
-        Faculties.remove(facultyId);
+        faculties.remove(facultyId);
         for (UserAccount ua : new ArrayList<>(accounts.list())) {
             if (ua.getPersonId().equals(facultyId) && ua.getRole() == Role.FACULTY) {
                 accounts.remove(ua.getUsername());
@@ -123,7 +123,7 @@ public class Business {
      *
      */
     public void deleteStudentById(String studentId) {
-        Student s = Students.remove(studentId);
+        Student s = students.remove(studentId);
         if (s != null) {
             for (Enrollment e : new ArrayList<>(s.getEnrollments())) {
                 e.getOffering().getEnrollments().remove(e);
@@ -202,25 +202,25 @@ public class Business {
      *
      */
     public Admin getAdminById(String id) {
-        return Admins.get(id);
+        return admins.get(id);
     }
 
     /**
      *
      */
     public Faculty getFacultyById(String id) {
-        return Faculties.get(id);
+        return faculties.get(id);
     }
 
     /**
      *
      */
     public Student getStudentById(String id) {
-        return Students.get(id);
+        return students.get(id);
     }
 
     public void deleteAdminById(String id) {
-        Admins.remove(id);
+        admins.remove(id);
     }
 
     public List<TuitionInvoice> getInvoicesByStudent(Student s) {
