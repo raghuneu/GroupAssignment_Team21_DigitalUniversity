@@ -95,7 +95,8 @@ public class ConfigureTheBusiness {
         b.createOrUpdateInvoice(s1);
         b.createOrUpdateInvoice(s2);
 
-        
+        // Marking Priya's invoice as PAID so faculty dashboard shows collected tuition
+        // 6 courses × 4 credits of Priya is $24,000
         java.util.List<TuitionInvoice> priyaInvs = b.getInvoicesByStudent(s1);
         if (!priyaInvs.isEmpty()) {
             priyaInvs.get(0).pay();
