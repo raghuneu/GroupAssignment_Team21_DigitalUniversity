@@ -12,12 +12,12 @@ import java.util.UUID;
  */
 public class Person {
 
-    private final UUID id;
+    private final String id;
     private String name;
     private String email;
 
     public Person(String name, String email) {
-        this.id = UUID.randomUUID();
+        this.id = UUID.randomUUID().toString();
         this.name = name;
         this.email = email;
     }
