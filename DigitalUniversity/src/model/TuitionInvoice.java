@@ -79,7 +79,7 @@ public class TuitionInvoice {
 
     public void pay() {
         if (!paid) {
-            amountDue = 0;
+            amountDue = 0.0;
             paid = true;
             paidDate = LocalDate.now();
         }
