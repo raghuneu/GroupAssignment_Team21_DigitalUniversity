@@ -17,8 +17,9 @@ public class AccessControlLayer extends JPanel {
     private Business business;
     private UserAccount loggedInAccount;
 
-    public AccessControlLayer(JPanel root, UserAccount ua) {
+    public AccessControlLayer(JPanel root, Business business, UserAccount ua) {
         this.root = root;
+        this.business = business;
         this.loggedInAccount = ua;
         this.setLayout(new CardLayout());
        
