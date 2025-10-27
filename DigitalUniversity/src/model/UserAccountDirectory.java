@@ -11,7 +11,7 @@ import java.util.Map;
 
 /**
  *
- * @author priyankavadivel
+ * @author rg
  */
 public class UserAccountDirectory {
 
@@ -43,6 +43,17 @@ public class UserAccountDirectory {
      */
     public List<UserAccount> list() {
         return new ArrayList<>(byUsername.values());
+    }
+
+    /**
+     *
+     */
+    public UserAccount authenticate(String username, String password) {
+        UserAccount ua = byUsername.get(username);
+        if (ua != null && ua.isActive() && ua.getPassword().equals(password)) {
+            return ua;
+        }
+        return null;
     }
 
 }
