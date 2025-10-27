@@ -13,6 +13,7 @@ import java.util.Map;
 /**
  *
  * @author priyankavadivel
+ * @author rg
  */
 public class Business {
 
