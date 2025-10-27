@@ -12,7 +12,7 @@ public class Enrollment {
 
     private final Student student;
     private final CourseOffering offering;
-    private Grade Grade;
+    private Grade grade;
 
     /**
      * 
