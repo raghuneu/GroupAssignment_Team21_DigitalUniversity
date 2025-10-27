@@ -2,7 +2,6 @@ package model;
 
 import digitaluniversity.ui.admin.AdminWorkAreaPanel;
 import digitaluniversity.ui.faculty.FacultyWorkAreaPanel;
-//import digitaluniversity.ui.faculty.FacultyWorkAreaPanel;
 import digitaluniversity.ui.student.StudentWorkAreaPanel;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
