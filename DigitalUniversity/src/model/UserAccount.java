@@ -14,7 +14,7 @@ public class UserAccount {
     private String password;
     private Role role;
     private String personId;
-    private Boolean active;
+    private boolean active;
 
     /**
      * 
