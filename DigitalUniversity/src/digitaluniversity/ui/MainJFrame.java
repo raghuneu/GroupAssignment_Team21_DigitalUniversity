@@ -10,6 +10,8 @@ import model.Business;
 import model.ConfigureTheBusiness;
 
 /**
+ * Main application frame that serves as the entry point for Digital University.
+ * Initializes the business configuration and displays the login panel first.
  *
  * @author rg
  */
@@ -17,16 +19,24 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private Business business;
 
+    /**
+     * Creates new MainJFrame and initializes components.
+     * Sets up CardLayout navigation and loads the LoginPanel.
+     */
     public MainJFrame() {
         initComponents();
 
-        this.setLocationRelativeTo(null);
-        this.business = ConfigureTheBusiness.init();
+         this.setLocationRelativeTo(null); // center window on screen
+        this.business = ConfigureTheBusiness.init(); // initialize system data
+
+        // Set layout and prepare login panel
         workAreaPanel.setLayout(new CardLayout());
         LoginPanel login = new LoginPanel();
         login.putClientProperty("business", business);
         login.putClientProperty("root", workAreaPanel);
         workAreaPanel.add("login", login);
+
+        // Show login panel by default
         ((CardLayout) workAreaPanel.getLayout()).show(workAreaPanel, "login");
     }
 
@@ -44,9 +54,8 @@ public class MainJFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        workAreaPanel.setBackground(new java.awt.Color(255, 255, 255));
         workAreaPanel.setLayout(new java.awt.CardLayout());
-        getContentPane().add(workAreaPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 650));
+        getContentPane().add(workAreaPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
